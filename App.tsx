@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react'
+import { ToDo } from './src/types/interfaces';
+import { ToDoList } from './src/components/to-do-list/to-do-list'
+import { ToDoForm } from './src/components/to-do-form/to-do-form'
+import { Text, ScrollView } from 'react-native';
+import { styles } from './src/styles/styles'
 
-export default function App() {
+const App = () => {
+  const [toDos, setToDos] = useState<ToDo[]>([])
+
+  const addToDo = (toDo: ToDo) : ToDo[] => {
+    const newToDos = [toDo, ...toDos];
+    setToDos(newToDos);
+    return newToDos;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <ScrollView contentContainerStyle={styles.toDo_list_app_container}>
+      <Text style={styles.toDo_list_app_title}>ToDo List</Text>
+      <ToDoForm addToDo={addToDo} />
+      <ToDoList toDos={toDos} setToDos={setToDos} />
+    </ScrollView>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
