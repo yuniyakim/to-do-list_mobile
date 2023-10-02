@@ -32,5 +32,5 @@ export interface Style {
   toDo_container: ViewStyle;
   toDo_checkbox: ViewStyle;
   toDo_content: ViewStyle;
-  toDo_content_completed: ViewStyle;
+  toDo_content_completed: TextStyle;
 }

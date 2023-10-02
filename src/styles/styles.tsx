@@ -7,14 +7,13 @@ export const styles = StyleSheet.create<Style>({
     fontSize: 16,
     color: 'rgb(0, 0, 0)',
     minHeight: '100%',
-    minWidth: '100%',
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    fontFamily: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif',
     lineHeight: 1.5,
     fontWeight: '400',
-    width: 480,
+    paddingTop: 32,
   },
 
   toDo_list_app_title: {
@@ -25,17 +24,23 @@ export const styles = StyleSheet.create<Style>({
   toDo_form: {
     display: 'flex',
     flexDirection: 'row',
+    alignContent: 'stretch',
     flexShrink: 1,
     alignItems: 'center',
     marginBottom: 16,
     height: 48,
+    // minWidth: '100%',
     width: '100%',
+    paddingLeft: 16,
+    paddingRight: 16,
   },
 
   toDo_list_container: {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
+    paddingLeft: 16,
+    paddingRight: 16,
   },
 
   toDo_input: {
@@ -47,7 +52,9 @@ export const styles = StyleSheet.create<Style>({
     color: 'rgb(0, 0, 0)',
     fontSize: 16,
     height: 32,
-    width: '100%',
+    flexGrow: 1,
+    display: 'flex',
+    flexShrink: 1,
     paddingLeft: 16,
     paddingRight: 16,
   },
@@ -60,9 +67,9 @@ export const styles = StyleSheet.create<Style>({
     color: 'rgb(255, 255, 255)',
     width: 'auto',
     height: 32,
-    paddingTop: 4.8,
+    paddingTop: 6,
     paddingRight: 16,
-    paddingBottom: 4.8,
+    paddingBottom: 6,
     paddingLeft: 16,
     backgroundColor: 'rgb(0, 170, 100)',
     marginLeft: 16,
@@ -76,9 +83,9 @@ export const styles = StyleSheet.create<Style>({
     color: 'rgb(255, 255, 255)',
     width: 'auto',
     height: 32,
-    paddingTop: 4.8,
+    paddingTop: 6,
     paddingRight: 16,
-    paddingBottom: 4.8,
+    paddingBottom: 6,
     paddingLeft: 16,
     backgroundColor: 'rgb(255, 0, 0)',
     marginLeft: 'auto',
@@ -101,8 +108,7 @@ export const styles = StyleSheet.create<Style>({
   },
 
   toDo_checkbox: {
-    minHeight: 12,
-    minWidth: 12,
+    transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }],
   },
 
   toDo_content: {
@@ -111,18 +117,11 @@ export const styles = StyleSheet.create<Style>({
     flexShrink: 1,
     justifyContent: 'center',
     flexDirection: 'column',
-    paddingTop: 4.8,
-    paddingBottom: 4.8,
+    paddingTop: 6,
+    paddingBottom: 6,
   },
 
   toDo_content_completed: {
-    minHeight: 48,
-    display: 'flex',
-    flexShrink: 1,
-    justifyContent: 'center',
-    flexDirection: 'column',
-    paddingTop: 4.8,
-    paddingBottom: 4.8,
     textDecorationLine: 'line-through',
   },
 })
