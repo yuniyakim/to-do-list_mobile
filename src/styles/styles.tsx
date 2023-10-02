@@ -9,13 +9,11 @@ export const styles = StyleSheet.create<Style>({
     minHeight: '100%',
     minWidth: '100%',
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
+    flexDirection: 'column',
+    alignItems: 'center',
     fontFamily: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif',
     lineHeight: 1.5,
     fontWeight: '400',
-    flexDirection: 'column',
-    // alignItems: 'center',
     width: 480,
   },
 
@@ -26,6 +24,8 @@ export const styles = StyleSheet.create<Style>({
 
   toDo_form: {
     display: 'flex',
+    flexDirection: 'row',
+    flexShrink: 1,
     alignItems: 'center',
     marginBottom: 16,
     height: 48,
@@ -86,6 +86,8 @@ export const styles = StyleSheet.create<Style>({
 
   toDo_container: {
     display: 'flex',
+    flexDirection: 'row',
+    flexShrink: 1,
     borderStyle: 'solid',
     borderTopWidth: 1,
     borderTopColor: 'rgb(222, 222, 222)',
@@ -105,8 +107,8 @@ export const styles = StyleSheet.create<Style>({
 
   toDo_content: {
     minHeight: 48,
-    // wordBreak: 'break-all',
     display: 'flex',
+    flexShrink: 1,
     justifyContent: 'center',
     flexDirection: 'column',
     paddingTop: 4.8,
@@ -115,8 +117,8 @@ export const styles = StyleSheet.create<Style>({
 
   toDo_content_completed: {
     minHeight: 48,
-    // wordBreak: 'break-all',
     display: 'flex',
+    flexShrink: 1,
     justifyContent: 'center',
     flexDirection: 'column',
     paddingTop: 4.8,
