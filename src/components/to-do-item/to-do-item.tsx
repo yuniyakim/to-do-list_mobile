@@ -1,6 +1,6 @@
 import { styles } from '../../styles/styles';
 import { ToDoItemProps } from '../../types/interfaces';
-import { ScrollView, View, Switch, Pressable, Text } from 'react-native';
+import { View, Switch, Pressable, Text } from 'react-native';
 
 export const ToDoItem = ({ toDo, completeToDo, deleteToDo }: ToDoItemProps) => {
   const handleComplete = () => {
@@ -12,7 +12,7 @@ export const ToDoItem = ({ toDo, completeToDo, deleteToDo }: ToDoItemProps) => {
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.toDo_container}>
+    <View style={styles.toDo_container}>
       <Switch style={styles.toDo_checkbox} onValueChange={handleComplete} value={toDo.completed}></Switch>
       <View style={toDo.completed ? styles.toDo_content_completed : styles.toDo_content}>
         <Text>
@@ -24,6 +24,6 @@ export const ToDoItem = ({ toDo, completeToDo, deleteToDo }: ToDoItemProps) => {
           Delete
         </Text>
       </Pressable>
-    </ScrollView>
+    </View>
   );
 }
