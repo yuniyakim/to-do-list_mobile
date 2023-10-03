@@ -29,7 +29,6 @@ export const styles = StyleSheet.create<Style>({
     alignItems: 'center',
     marginBottom: 16,
     height: 48,
-    // minWidth: '100%',
     width: '100%',
     paddingLeft: 16,
     paddingRight: 16,
