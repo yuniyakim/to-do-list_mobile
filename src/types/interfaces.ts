@@ -29,6 +29,7 @@ export interface Style {
   toDo_input: ViewStyle;
   toDo_add_button: ViewStyle;
   toDo_delete_button: ViewStyle;
+  toDo_button_content: TextStyle;
   toDo_container: ViewStyle;
   toDo_checkbox: ViewStyle;
   toDo_content: ViewStyle;

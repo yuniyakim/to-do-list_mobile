@@ -23,7 +23,7 @@ export const ToDoForm = ({ addToDo }: ToDoFormProps) => {
         onChangeText={setInputText}
       />
       <Pressable style={styles.toDo_add_button} onPress={submitToDoHandler}>
-        <Text>
+        <Text style={styles.toDo_button_content}>
           Add
         </Text>
       </Pressable>

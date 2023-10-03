@@ -63,7 +63,6 @@ export const styles = StyleSheet.create<Style>({
     borderStyle: 'solid',
     borderColor: 'rgb(222, 222, 222)',
     borderRadius: 16,
-    color: 'rgb(255, 255, 255)',
     width: 'auto',
     height: 32,
     paddingTop: 6,
@@ -79,7 +78,6 @@ export const styles = StyleSheet.create<Style>({
     borderStyle: 'solid',
     borderColor: 'rgb(222, 222, 222)',
     borderRadius: 16,
-    color: 'rgb(255, 255, 255)',
     width: 'auto',
     height: 32,
     paddingTop: 6,
@@ -88,6 +86,10 @@ export const styles = StyleSheet.create<Style>({
     paddingLeft: 16,
     backgroundColor: 'rgb(255, 0, 0)',
     marginLeft: 'auto',
+  },
+
+  toDo_button_content: {
+    color: 'rgb(255, 255, 255)',
   },
 
   toDo_container: {

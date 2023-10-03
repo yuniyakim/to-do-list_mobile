@@ -20,7 +20,7 @@ export const ToDoItem = ({ toDo, completeToDo, deleteToDo }: ToDoItemProps) => {
         </Text>
       </View>
       <Pressable style={styles.toDo_delete_button} onPress={handleDelete}>
-        <Text>
+        <Text style={styles.toDo_button_content}>
           Delete
         </Text>
       </Pressable>
