@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import { Pressable, Text, TextInput, View } from 'react-native';
 import { ToDoFormProps } from '../../types/interfaces';
-import { Pressable, View, TextInput, Text } from 'react-native';
 import { styles } from '../../styles/styles';
 
 export const ToDoForm = ({ addToDo }: ToDoFormProps) => {

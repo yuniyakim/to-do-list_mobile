@@ -1,7 +1,7 @@
-import { ToDoItem } from "../to-do-item/to-do-item";
+import { ToDoItem } from '../to-do-item/to-do-item';
 import { ToDo, ToDoListProps } from '../../types/interfaces';
 import { View } from 'react-native';
-import { styles } from "../../styles/styles";
+import { styles } from '../../styles/styles';
 
 export const ToDoList = ({ toDos, setToDos }: ToDoListProps) => {
   const completeToDo = (id: number): ToDo[] => {

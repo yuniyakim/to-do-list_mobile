@@ -1,11 +1,11 @@
 import { useState } from 'react'
+import { ScrollView, Text } from 'react-native';
+import { ToDoForm } from './src/components/to-do-form/to-do-form';
+import { ToDoList } from './src/components/to-do-list/to-do-list';
 import { ToDo } from './src/types/interfaces';
-import { ToDoList } from './src/components/to-do-list/to-do-list'
-import { ToDoForm } from './src/components/to-do-form/to-do-form'
-import { Text, ScrollView } from 'react-native';
 import { styles } from './src/styles/styles'
 
-const App = () => {
+export const App = () => {
   const [toDos, setToDos] = useState<ToDo[]>([])
 
   const addToDo = (toDo: ToDo) : ToDo[] => {
@@ -23,4 +23,4 @@ const App = () => {
   )
 }
 
-export default App;
+// export default App;
