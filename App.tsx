@@ -5,7 +5,7 @@ import { ToDoList } from './src/components/to-do-list/to-do-list';
 import { ToDo } from './src/types/interfaces';
 import { styles } from './src/styles/styles'
 
-export const App = () => {
+const App = () => {
   const [toDos, setToDos] = useState<ToDo[]>([])
 
   const addToDo = (toDo: ToDo) : ToDo[] => {
@@ -23,4 +23,4 @@ export const App = () => {
   )
 }
 
-// export default App;
+export default App;
