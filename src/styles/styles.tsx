@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { Style } from '../types/interfaces';
+import {StyleSheet} from 'react-native';
+import {Style} from '../types/interfaces';
 
 export const styles = StyleSheet.create<Style>({
   toDo_list_app_container: {
@@ -109,7 +109,7 @@ export const styles = StyleSheet.create<Style>({
   },
 
   toDo_checkbox: {
-    transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }],
+    transform: [{scaleX: 0.8}, {scaleY: 0.8}],
   },
 
   toDo_content: {
@@ -125,4 +125,4 @@ export const styles = StyleSheet.create<Style>({
   toDo_content_completed: {
     textDecorationLine: 'line-through',
   },
-})
+});
