@@ -61,20 +61,21 @@ export const config: Options.Testrunner = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        // capabilities for local Appium web tests on an Android Emulator
-        platformName: 'Android',
-        browserName: 'Chrome',
-        'appium:deviceName': 'Android GoogleAPI Emulator',
-        'appium:platformVersion': '12.0',
-        'appium:automationName': 'UiAutomator2'
-    },
-    {
+    //     // capabilities for local Appium web tests on an Android Emulator
+    //     platformName: 'Android',
+    //     browserName: 'Chrome',
+    //     'appium:deviceName': 'Android GoogleAPI Emulator',
+    //     'appium:platformVersion': '12.0',
+    //     'appium:automationName': 'UiAutomator2'
+    // },
+    // {
         // capabilities for local Appium web tests on iOS
         platformName: 'iOS',
-        browserName: 'Safari',
-        'appium:deviceName': 'iPhone Simulator',
-        'appium:platformVersion': '16.4',
-        'appium:automationName': 'XCUITest'
+        // browserName: 'Safari',
+        'appium:deviceName': 'iPhone 15',
+        'appium:platformVersion': '17.2',
+        'appium:automationName': 'XCUITest',
+        'appium:bundleId': 'org.reactjs.native.example.toDoListMobile'
     }],
 
     //
