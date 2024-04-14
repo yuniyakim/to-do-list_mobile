@@ -8,9 +8,6 @@ jobs:
   build_and_push:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
         
@@ -26,7 +23,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:          
-          context: "{{defaultContext}}:server"
+          context: ./server
           push: true
           tags: yuniyakim/to-do-list_web-server:latest
 
