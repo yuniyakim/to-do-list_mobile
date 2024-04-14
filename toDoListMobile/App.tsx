@@ -1,5 +1,6 @@
+import React from 'react';
 import {useState, Profiler} from 'react';
-import {ScrollView, Text} from 'react-native';
+import {ScrollView, Text, Platform} from 'react-native';
 import {ToDoForm} from './src/components/to-do-form/to-do-form';
 import {ToDoList} from './src/components/to-do-list/to-do-list';
 import {ToDo} from './src/types/interfaces';
@@ -14,20 +15,29 @@ const App = () => {
     return newToDos;
   };
 
-  const onRender = (id: string, phase: 'mount' | 'update' | 'nested-update', actualDuration: number, baseDuration: number, startTime: number, commitTime: number) => {
-    // console.log(`${id}'s ${phase} phase:`);
-    // alert(`Actual duration: ${actualDuration}`);
-    // console.log(`Actual duration: ${actualDuration}`);
-    // alert(`Base duration: ${baseDuration}`);
-    // console.log(`Base duration: ${baseDuration}`);
-    // console.log(`Start time: ${startTime}`);
-    // console.log(`Commit time: ${commitTime}`);
+  const onRender = (
+    _id: string, 
+    _phase: 'mount' | 'update' | 'nested-update', 
+    actualDuration: number, 
+    _baseDuration: number, 
+    _startTime: number, 
+    _commitTime: number
+  ) => {
+    const url = 'http://192.168.66.1:5555/add';
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({app: 'mobile', platform: Platform.OS, time: actualDuration})
+    });
   }
 
   return (
     <Profiler id="App" onRender={onRender}>
       <ScrollView contentContainerStyle={styles.toDo_list_app_container}>
-        <Text style={styles.toDo_list_app_title}>ToDo List</Text>
+        <Text accessibilityLabel="todo-list-title" style={styles.toDo_list_app_title}>ToDo List</Text>
         <ToDoForm addToDo={addToDo} />
         <ToDoList toDos={toDos} setToDos={setToDos} />
       </ScrollView>

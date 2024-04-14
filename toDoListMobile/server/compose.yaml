@@ -1,0 +1,16 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "5555:5000"
+    depends_on:
+      - db
+    restart: unless-stopped
+  db:
+    image: postgres:10
+    env_file: .env
+    expose:
+      - 5432
+    restart: unless-stopped
