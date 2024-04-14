@@ -1,8 +1,6 @@
 services:
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile.server
+  server:
+    image: yuniyakim/to-do-list_web-server:latest
     ports:
       - "5555:5000"
     depends_on:
