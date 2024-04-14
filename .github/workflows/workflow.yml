@@ -28,7 +28,7 @@ jobs:
         with:
           push: true
           tags: yuniyakim/to-do-list_web-server:latest
-          file: ./server/Dockerfile.server
+          file: server/Dockerfile.server
 
   deploy:
     runs-on: ubuntu-latest
