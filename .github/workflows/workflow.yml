@@ -23,7 +23,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:          
-          context: ./server
+          context: "{{defaultContext}}:server"
           push: true
           tags: yuniyakim/to-do-list_web-server:latest
 
