@@ -29,7 +29,8 @@ cur.execute(
         'id serial PRIMARY KEY,'
         'app varchar (50) NOT NULL,'
         'platform varchar (50) NOT NULL,'
-        'time float NOT NULL);'
+        'time float NOT NULL,'
+        'device varchar (50) NOT NULL);'
 )
 conn.commit()
 
@@ -69,7 +70,10 @@ def desktop():
     cur = conn.cursor()
 
     cur.execute(f'SELECT platform, COUNT(*), MIN(time), AVG(time), MAX(time) FROM loading_time WHERE app = \'{app_type}\' GROUP BY platform;')
-    statistics = cur.fetchall()
+    statistics_platform = cur.fetchall()
+
+    cur.execute(f'SELECT platform, device, COUNT(*), MIN(time), AVG(time), MAX(time) FROM loading_time WHERE app = \'{app_type}\' GROUP BY platform, device;')
+    statistics_device = cur.fetchall()
 
     cur.execute(f'SELECT * FROM loading_time WHERE app = \'{app_type}\'')
     data = cur.fetchall()
@@ -77,7 +81,7 @@ def desktop():
     cur.close()
     conn.close()
 
-    return render_template('report.html', app='desktop', statistics=statistics, data=data)
+    return render_template('report.html', app=app_type, statistics_platform=statistics_platform, statistics_device=statistics_device, data=data)
 
 @app.route('/pwa')
 def pwa():
@@ -93,7 +97,10 @@ def pwa():
     cur = conn.cursor()
 
     cur.execute(f'SELECT platform, COUNT(*), MIN(time), AVG(time), MAX(time) FROM loading_time WHERE app = \'{app_type}\' GROUP BY platform;')
-    statistics = cur.fetchall()
+    statistics_platform = cur.fetchall()
+
+    cur.execute(f'SELECT platform, device, COUNT(*), MIN(time), AVG(time), MAX(time) FROM loading_time WHERE app = \'{app_type}\' GROUP BY platform, device;')
+    statistics_device = cur.fetchall()
 
     cur.execute(f'SELECT * FROM loading_time WHERE app = \'{app_type}\'')
     data = cur.fetchall()
@@ -101,7 +108,7 @@ def pwa():
     cur.close()
     conn.close()
 
-    return render_template('report.html', app='pwa', statistics=statistics, data=data)
+    return render_template('report.html', app=app_type, statistics_platform=statistics_platform, statistics_device=statistics_device, data=data)
 
 @app.route('/mobile')
 def mobile():
@@ -117,7 +124,10 @@ def mobile():
     cur = conn.cursor()
 
     cur.execute(f'SELECT platform, COUNT(*), MIN(time), AVG(time), MAX(time) FROM loading_time WHERE app = \'{app_type}\' GROUP BY platform;')
-    statistics = cur.fetchall()
+    statistics_platform = cur.fetchall()
+
+    cur.execute(f'SELECT platform, device, COUNT(*), MIN(time), AVG(time), MAX(time) FROM loading_time WHERE app = \'{app_type}\' GROUP BY platform, device;')
+    statistics_device = cur.fetchall()
 
     cur.execute(f'SELECT * FROM loading_time WHERE app = \'{app_type}\'')
     data = cur.fetchall()
@@ -125,7 +135,7 @@ def mobile():
     cur.close()
     conn.close()
 
-    return render_template('report.html', app=app_type, statistics=statistics, data=data)
+    return render_template('report.html', app=app_type, statistics_platform=statistics_platform, statistics_device=statistics_device, data=data)
 
 
 @app.route('/add', methods=['POST'])
@@ -143,8 +153,9 @@ def add():
     app = data['app']
     platform = data['platform']
     time = data['time']
+    device = data['device']
 
-    cur.execute(f'INSERT INTO loading_time (app, platform, time) VALUES ({app}, {platform}, {time})')
+    cur.execute(f'INSERT INTO loading_time (app, platform, time, device) VALUES (\'{app}\', \'{platform}\', {time}, \'{device}\')')
     conn.commit()
 
     cur.close()

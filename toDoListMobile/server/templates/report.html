@@ -4,49 +4,77 @@
   </head>
   <body>
     <h1>Loading time for {{ app }} application</h1>
-    <h2>Statistics</h2>
+    <h2>Statistics for platforms</h2>
     <table>
       <thead>
         <tr>
           <th>Platform</th>
           <th>Retries number</th>
-          <th>Average time</th>
           <th>Minimum time</th>
+          <th>Average time</th>
           <th>Maximum time</th>
         </tr>
       </thead>
       <tbody>
-        {% for i in range(statistics|length) %}
+        {% for i in range(statistics_platform|length) %}
         <tr>
-          <td>{{ statistics[i][0] }}</td>
-          <td>{{ statistics[i][1] }}</td>
-          <td>{{ statistics[i][2] }}</td>
-          <td>{{ statistics[i][3] }}</td>
-          <td>{{ statistics[i][4] }}</td>
+          <td>{{ statistics_platform[i][0] }}</td>
+          <td>{{ statistics_platform[i][1] }}</td>
+          <td>{{ statistics_platform[i][2] }}</td>
+          <td>{{ statistics_platform[i][3] }}</td>
+          <td>{{ statistics_platform[i][4] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br/>
+    <h2>Statistics for devices</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Device</th>
+          <th>Retries number</th>
+          <th>Minimum time</th>
+          <th>Average time</th>
+          <th>Maximum time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in range(statistics_device|length) %}
+        <tr>
+          <td>{{ statistics_device[i][0] }}</td>
+          <td>{{ statistics_device[i][1] }}</td>
+          <td>{{ statistics_device[i][2] }}</td>
+          <td>{{ statistics_device[i][3] }}</td>
+          <td>{{ statistics_device[i][4] }}</td>
+          <td>{{ statistics_device[i][5] }}</td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
     <br/>
     <h2>All data</h2>
-    {% for i in range(statistics|length) %}
-    <h3>Data for {{ statistics[i][0] }} platform</h2>
+    {% for i in range(statistics_device|length) %}
+    <h3>Data for device {{ statistics_device[i][1] }} of {{ statistics_device[i][0] }} platform</h2>
     <table>
       <thead>
         <tr>
           <th>Number</th>
           <th>App</th>
           <th>Platfrom</th>
+          <th>Device</th>
           <th>Loading time</th>
         </tr>
       </thead>
       <tbody>
         {% for j in range(data|length) %}
-        {% if data[j][2] == statistics[i][0] %}
+        {% if data[j][2] == statistics_device[i][0] and data[j][4] == statistics_device[i][1] %}
         <tr>
           <td>{{ j + 1 }}</td>
           <td>{{ data[j][1] }}</td>
           <td>{{ data[j][2] }}</td>
+          <td>{{ data[j][4] }}</td>
           <td>{{ data[j][3] }}</td>
         </tr>
         {% endif %}
