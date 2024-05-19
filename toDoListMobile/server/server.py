@@ -1,6 +1,7 @@
 import os
 import psycopg2
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, Response
+from flask_cors import CORS
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -14,6 +15,7 @@ DBHOST='db'
 DBPORT='5432'
 
 app = Flask(__name__)
+CORS(app)
 
 conn = psycopg2.connect(
     database=DBNAME,
@@ -162,6 +164,14 @@ def add():
     conn.close()
 
     return redirect(url_for('index'))
+
+
+@app.before_request
+def handle_preflight():
+    if request.method == "OPTIONS":
+        res = Response()
+        res.headers['X-Content-Type-Options'] = '*'
+        return res
 
 
 if __name__ == '__main__':

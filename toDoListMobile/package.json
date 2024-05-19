@@ -11,9 +11,10 @@
     "start": "react-native start",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "start:appium": "NODE_OPTIONS=--experimental-vm-modules appium",
-    "test:e2e:all": "npm test:e2e:android && npm test:e2e:ios",
+    "test:e2e:all": "npm test:e2e:android && npm test:e2e:ios && npm test:e2e:macos",
     "test:e2e:android": "E2E_DEVICE=\"android\" npm test",
-    "test:e2e:ios": "E2E_DEVICE=\"ios\" npm test"
+    "test:e2e:ios": "E2E_DEVICE=\"ios\" npm test",
+    "test:e2e:macos": "E2E_DEVICE=\"macos\" npm test"
   },
   "dependencies": {
     "@testing-library/jest-native": "^5.4.3",

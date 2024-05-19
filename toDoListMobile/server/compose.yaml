@@ -1,6 +1,7 @@
 services:
   server:
-    image: yuniyakim/to-do-list_web-server:latest
+    # image: yuniyakim/to-do-list_web-server:latest
+    image: server:latest
     ports:
       - "5555:5000"
     depends_on:

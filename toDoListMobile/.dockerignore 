@@ -1,0 +1,6 @@
+.bundle/
+.idea/
+android/
+deploy/
+ios/
+vendor/
