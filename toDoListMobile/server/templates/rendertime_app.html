@@ -1,9 +1,11 @@
 <html>
   <head>
-    <title>Loading time for {{ app }} application</title>
+    <title>Render time for {{ app }} application</title>
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
   </head>
   <body>
-    <h1>Loading time for {{ app }} application</h1>
+    <h1>Render time for {{ app }} application</h1>
+
     <h2>Statistics for platforms</h2>
     <table>
       <thead>
@@ -27,7 +29,7 @@
         {% endfor %}
       </tbody>
     </table>
-    <br/>
+
     <h2>Statistics for devices</h2>
     <table>
       <thead>
@@ -53,7 +55,7 @@
         {% endfor %}
       </tbody>
     </table>
-    <br/>
+
     <h2>All data</h2>
     {% for i in range(statistics_device|length) %}
     <h3>Data for device {{ statistics_device[i][1] }} of {{ statistics_device[i][0] }} platform</h2>
@@ -64,19 +66,21 @@
           <th>App</th>
           <th>Platfrom</th>
           <th>Device</th>
-          <th>Loading time</th>
+          <th>Render time</th>
         </tr>
       </thead>
       <tbody>
+        {% set number = namespace(value=1) %}
         {% for j in range(data|length) %}
         {% if data[j][2] == statistics_device[i][0] and data[j][4] == statistics_device[i][1] %}
         <tr>
-          <td>{{ j + 1 }}</td>
+          <td>{{ number.value }}</td>
           <td>{{ data[j][1] }}</td>
           <td>{{ data[j][2] }}</td>
           <td>{{ data[j][4] }}</td>
           <td>{{ data[j][3] }}</td>
         </tr>
+        {% set number.value = number.value + 1 %}
         {% endif %}
         {% endfor %}
       </tbody>

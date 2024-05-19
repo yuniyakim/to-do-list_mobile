@@ -1,30 +1,28 @@
 <html>
   <head>
-    <title>Loading time</title>
+    <title>React applications performance</title>
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
   </head>
   <body>
-    <h1>Loading time for all applications</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Number</th>
-          <th>App</th>
-          <th>Platfrom</th>
-          <th>Device</th>
-          <th>Time</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for row in data %}
-        <tr>
-          <td>{{ row[0] }}</td>
-          <td>{{ row[1] }}</td>
-          <td>{{ row[2] }}</td>
-          <td>{{ row[4] }}</td>
-          <td>{{ row[3] }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <h1>Performance of mobile, desktop, progressive web applications in React ecosystem</h1>
+
+    <div>
+      <h2>Experiments results</h2>
+      <ul class="list">
+        <li><a href="/rendertime">Render time</a></li>
+        <li><a href="/cpu">CPU usage</a></li>
+        <li><a href="/ram">RAM usage</a></li>
+        <li><a href="/size">Application size</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Test applications code</h2>
+      <ul class="list">
+        <li><a href="https://github.com/yuniyakim/to-do-list_mobile">Mobile applicaion (React Native + React Native CLI)</a></li>
+        <li><a href="https://github.com/yuniyakim/to_do_list_macos">Desktop application (React Native)</a></li>
+        <li><a href="https://github.com/yuniyakim/to-do-list_pwa">Progressive web application (React)</a></li>
+      </ul>
+    </div>
   </body>
 </html>
